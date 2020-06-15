@@ -15,3 +15,7 @@ for instance:
  Changed release date in past for "Mr. Lele"
  
  Changed poster format for "Toofan"
+ 
+ Also, for point in API automation 5. No movie code should have more than 1 language format.
+ 
+ I can see in JSON response the way it is structured it will always have only one movie "language". So if we want to perform above validation I believe language field should have an array.
