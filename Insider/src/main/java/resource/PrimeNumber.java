@@ -7,14 +7,14 @@ public class PrimeNumber {
 	   {
 	      
 	      int status = 1;
-	      int num = 3;
+	      int num = 2;
 	      System.out.println("First 100 prime numbers are:");   
-	      System.out.println(2);
-	      for ( int i = 2 ; i <=100 ;  )
+	      
+	      for ( int i = 1 ; i <=100 ;  )
 	      {
-	    	  
-	    	
-	         for ( int j = 2 ; j <= Math.sqrt(num) ; j++ )
+	    	 
+	    	  	    	
+	         for ( int j = 2 ; j <=Math.sqrt(num)  ; j++ )
 	         {
 	            if ( num%j == 0 )
 	            {
@@ -24,7 +24,7 @@ public class PrimeNumber {
 	         }
 	         if ( status != 0 )
 	         {
-	            System.out.println(num);
+	            System.out.println(i+" : "+num);
 	            i++;
 	         }
 	       

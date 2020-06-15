@@ -32,22 +32,41 @@ public class NegativeTestCases {
 	JsonPath js;
 	int noofmovies;
 
-	
+	@BeforeTest
+	public void payload() {
+		js = new JsonPath(Payload.upcomingMovies());
+
+		noofmovies = js.getInt("upcomingMovieData.size()");
+
+	}
+
 	// Validate response code is 200 or not
-	@Test(priority = 0,enabled = false)
+	@Test(priority = 0, enabled = false)
 	public void responseValidation() {
 
 		response.then().assertThat().statusCode(200);
+	}
+
+	@Test(priority = 0)
+	public void languageValidation() {
+		List<String> movies = new ArrayList<String>();
+		List<String> lang = new ArrayList<String>();
+		for (int i = 0; i < noofmovies; i++) {
+			String movieLang = js.getString("upcomingMovieData[" + i + "].language");
+			String movieName = js.getString("upcomingMovieData[" + i + "].movie_name");
+			movies.add(movieName);
+			lang.add(movieLang);
+			Assert.assertEquals(movies.size(), lang.size());
+		}
+
 	}
 
 	@Test(priority = 1)
 	public void releaseDate() throws Exception {
 
 		// response.then().assertThat().statusCode(200);
-		//String resData = response.asString();
-		js = new JsonPath(Payload.upcomingMovies());
+		// String resData = response.asString();
 
-		noofmovies = js.getInt("upcomingMovieData.size()");
 		// System.out.println(noofmovies);
 
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -56,19 +75,19 @@ public class NegativeTestCases {
 		// System.out.println(todayDate);
 		for (int i = 0; i < noofmovies; i++) {
 			String relDate = js.getString("upcomingMovieData[" + i + "].releaseDate");
-			if(relDate!=null)
-			{	
-			Date dates = formatter.parse(relDate);
-			// System.out.println(dates);
-			
-			boolean result = dates.before(todayDate);
-			Assert.assertEquals(false, result);
-			}
-			else
-				System.out.println("Release date is Null ");
+			String movieName = js.getString("upcomingMovieData[" + i + "].movie_name");
+
+			if (relDate != null) {
+				Date dates = formatter.parse(relDate);
+				// System.out.println(dates);
+
+				boolean result = dates.before(todayDate);
+				Assert.assertEquals(result,false);
+			} else
+				System.out.println("Release date is Null for " + movieName);
 
 		}
-		
+
 	}
 
 	// check poster format
@@ -76,28 +95,27 @@ public class NegativeTestCases {
 	public void posterFormat() {
 		for (int i = 0; i < noofmovies; i++) {
 			String posterType = js.getString("upcomingMovieData[" + i + "].moviePosterUrl");
+			String movieName = js.getString("upcomingMovieData[" + i + "].movie_name");
 
 			boolean b = posterType.endsWith(".jpg"); // System.out.println(posterType);
-			Assert.assertEquals(true, b);
 			
-
-		}
-
+			Assert.assertEquals(b, true," "+movieName+" poster is not ending with .jpg");
+			
+				}
 	}
 
 	// Paytm movie code should be unique
 	@Test(priority = 3)
 	public void validateMoviecode() {
 		Set<String> set = new HashSet<String>();
-		String pmcode="";
+		String pmcode = "";
 		for (int i = 0; i < noofmovies; i++) {
 			pmcode = js.getString("upcomingMovieData[" + i + "].paytmMovieCode");
 			boolean flag = set.add(pmcode);
-			Assert.assertEquals(true, flag);
-			
+			Assert.assertEquals(flag, true," "+pmcode+" is not unique");
 
 		}
-			}
+	}
 
 	// Write movie name to excel where content available is 0
 	@Test(priority = 4)
@@ -113,7 +131,7 @@ public class NegativeTestCases {
 			if (flag == 0) {
 				String movieName = js.getString("upcomingMovieData[" + i + "].provider_moviename");
 				movieList.add(movieName);
-				//System.out.println(movieName);
+				// System.out.println(movieName);
 			}
 			// Blank workbook
 

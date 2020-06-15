@@ -39,7 +39,11 @@ public class MoviesTestCases {
 
 		response = httpRequest.request(Method.GET, "/upcoming");
 		response.then().log().all();
+		
+		String resData = response.asString();
+		js = new JsonPath(resData);
 
+		noofmovies = js.getInt("upcomingMovieData.size()");
 	}
 
 	// Validate response code is 200 or not
@@ -48,28 +52,29 @@ public class MoviesTestCases {
 
 		response.then().assertThat().statusCode(200);
 	}
-
+	
+	//movie's release should not be in Past and NULL
 	@Test(priority = 1)
 	public void releaseDate() throws Exception {
-
-		// response.then().assertThat().statusCode(200);
-		String resData = response.asString();
-		js = new JsonPath(resData);
-
-		noofmovies = js.getInt("upcomingMovieData.size()");
-		// System.out.println(noofmovies);
 
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
 		Date todayDate = new Date();
 		// System.out.println(todayDate);
-		for (int i = 0; i < noofmovies - 1; i++) {
+		for (int i = 0; i < noofmovies; i++) {
 			String relDate = js.getString("upcomingMovieData[" + i + "].releaseDate");
+			String movieName = js.getString("upcomingMovieData[" + i + "].movie_name");
+			
+			if(relDate!=null)
+			{	
 			Date dates = formatter.parse(relDate);
 			// System.out.println(dates);
-
+			
 			boolean result = dates.before(todayDate);
-			Assert.assertEquals(false, result);
+			Assert.assertEquals(result,false);
+			}
+			else
+				System.out.println("Release date is Null for "+movieName);
 
 		}
 
@@ -81,8 +86,9 @@ public class MoviesTestCases {
 		for (int i = 0; i < noofmovies; i++) {
 			String posterType = js.getString("upcomingMovieData[" + i + "].moviePosterUrl");
 
-			boolean b = posterType.endsWith(".jpg"); // System.out.println(posterType);
-			Assert.assertEquals(true, b);
+			boolean b = posterType.endsWith(".jpg"); 
+			//System.out.println(posterType);
+			Assert.assertEquals( b, true);
 
 		}
 
@@ -96,7 +102,7 @@ public class MoviesTestCases {
 		for (int i = 0; i < noofmovies; i++) {
 			String pmcode = js.getString("upcomingMovieData[" + i + "].paytmMovieCode");
 			boolean flag = set.add(pmcode);
-			Assert.assertEquals(true, flag);
+			Assert.assertEquals( flag, true);
 
 		}
 
