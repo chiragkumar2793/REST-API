@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\chipatel1\AppData\Local\Temp\testng-eclipse--1792582686\testng-customsuite.xml</span>
+                    <span>C:\Users\chipatel1\AppData\Local\Temp\testng-eclipse-977375802\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods, 2 failed,   2 passed</span>
+                    <span class="method-stats">3 methods, 3 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -107,29 +107,15 @@
                       <br/>
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.NegativeTestCases" hash-for-method="validateMoviecode">validateMoviecode</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Default_suite -->
-                  </li>
-                  <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content passed suite-Default_suite">
-                      <span>
-                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.NegativeTestCases" hash-for-method="releaseDate">releaseDate</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.NegativeTestCases" hash-for-method="writeMoviestoexcel">writeMoviestoexcel</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="test.NegativeTestCases" hash-for-method="validateMoviecode">validateMoviecode</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -152,14 +138,53 @@
                   <a name="posterFormat">
                   </a> <!-- posterFormat -->
                   <span class="method-name">posterFormat</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [false] but found [true]
+                  <div class="stack-trace">java.lang.AssertionError:  Toofan poster is not ending with .jpg expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.failNotEquals(Assert.java:513)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
 	at org.testng.Assert.assertEquals(Assert.java:116)
 	at org.testng.Assert.assertEquals(Assert.java:305)
-	at org.testng.Assert.assertEquals(Assert.java:315)
-	at test.NegativeTestCases.posterFormat(NegativeTestCases.java:81)
+	at test.NegativeTestCases.posterFormat(NegativeTestCases.java:85)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:645)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:822)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1130)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:782)
+	at org.testng.TestRunner.run(TestRunner.java:632)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+	at org.testng.TestNG.run(TestNG.java:1064)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:113)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:206)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:177)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="releaseDate">
+                  </a> <!-- releaseDate -->
+                  <span class="method-name">releaseDate</span>
+                  <div class="stack-trace">java.lang.AssertionError: Release date is in past for Mr. Lele expected [false] but found [true]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:305)
+	at test.NegativeTestCases.releaseDate(NegativeTestCases.java:68)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -193,14 +218,13 @@
                   <a name="validateMoviecode">
                   </a> <!-- validateMoviecode -->
                   <span class="method-name">validateMoviecode</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [false] but found [true]
+                  <div class="stack-trace">java.lang.AssertionError:  O9RCCT is not unique expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:94)
 	at org.testng.Assert.failNotEquals(Assert.java:513)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
 	at org.testng.Assert.assertEquals(Assert.java:116)
 	at org.testng.Assert.assertEquals(Assert.java:305)
-	at org.testng.Assert.assertEquals(Assert.java:315)
-	at test.NegativeTestCases.validateMoviecode(NegativeTestCases.java:96)
+	at test.NegativeTestCases.validateMoviecode(NegativeTestCases.java:98)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -231,32 +255,10 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Default_suite-class-failed -->
-          <div class="suite-Default_suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">test.NegativeTestCases</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="releaseDate">
-                  </a> <!-- releaseDate -->
-                  <span class="method-name">releaseDate</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="writeMoviestoexcel">
-                  </a> <!-- writeMoviestoexcel -->
-                  <span class="method-name">writeMoviestoexcel</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\chipatel1\AppData\Local\Temp\testng-eclipse--1792582686\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\chipatel1\AppData\Local\Temp\testng-eclipse-977375802\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -273,6 +275,8 @@
       &lt;class name=&quot;test.NegativeTestCases&quot;&gt;
         &lt;methods&gt;
           &lt;include name=&quot;posterFormat&quot;/&gt;
+          &lt;include name=&quot;releaseDate&quot;/&gt;
+          &lt;include name=&quot;payload&quot;/&gt;
           &lt;include name=&quot;validateMoviecode&quot;/&gt;
         &lt;/methods&gt;
       &lt;/class&gt; &lt;!-- test.NegativeTestCases --&gt;
@@ -318,28 +322,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'releaseDate')
 data.setCell(0, 2, 'test.NegativeTestCases')
-data.setCell(0, 3, 2203);
+data.setCell(0, 3, 805);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'writeMoviestoexcel')
+data.setCell(1, 1, 'posterFormat')
 data.setCell(1, 2, 'test.NegativeTestCases')
-data.setCell(1, 3, 1081);
+data.setCell(1, 3, 438);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'posterFormat')
+data.setCell(2, 1, 'validateMoviecode')
 data.setCell(2, 2, 'test.NegativeTestCases')
-data.setCell(2, 3, 487);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'validateMoviecode')
-data.setCell(3, 2, 'test.NegativeTestCases')
-data.setCell(3, 3, 227);
+data.setCell(2, 3, 195);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 3 seconds</span>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -373,25 +373,27 @@ return data;
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
               <div class="chronological-class-name">test.NegativeTestCases</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">releaseDate</span>
+              <div class="configuration-test before">
+                <span class="method-name">payload</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- configuration-test before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">releaseDate</span>
+                <span class="method-start">1657 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">posterFormat</span>
-                <span class="method-start">2210 ms</span>
+                <span class="method-start">2468 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">validateMoviecode</span>
-                <span class="method-start">2703 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">writeMoviestoexcel</span>
-                <span class="method-start">2936 ms</span>
+                <span class="method-start">2909 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -12,7 +12,7 @@ public class Payload {
 				"            \"moviePosterUrl\": \"https://s3-ap-southeast-1.amazonaws.com/assets.paytm.com/images/cinema/KGF-2-App-poster-608x800-a-ca543ffb-3083-4a4f-834a-240085bf3483.jpg\",\r\n" + 
 				"            \"movieTitle\": \"K.G.F. Chapter 2\",\r\n" + 
 				"            \"movie_name\": \"K.G.F. Chapter 2\",\r\n" + 
-				"            \"language\": \"Kannada\",\r\n" + 
+				"            \"language\": \"Marathi\",\r\n" + 
 				"            \"genre\": [\r\n" + 
 				"                \"Action\",\r\n" + 
 				"                \"Drama\"\r\n" + 
@@ -395,7 +395,7 @@ public class Payload {
 				"            \"genre\": [\r\n" + 
 				"                \"Comedy\"\r\n" + 
 				"            ],\r\n" + 
-				"            \"releaseDate\": \"2020-06-24\",\r\n" + 
+				"            \"releaseDate\": \"2020-06-04\",\r\n" + 
 				"            \"rank\": 1,\r\n" + 
 				"            \"paytmMovieCode\": \"O9VOWU\",\r\n" + 
 				"            \"isContentAvailable\": 0\r\n" + 

@@ -11,6 +11,8 @@
       <class name="test.NegativeTestCases">
         <methods>
           <include name="posterFormat"/>
+          <include name="releaseDate"/>
+          <include name="payload"/>
           <include name="validateMoviecode"/>
         </methods>
       </class> <!-- test.NegativeTestCases -->

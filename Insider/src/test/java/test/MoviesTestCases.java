@@ -71,7 +71,8 @@ public class MoviesTestCases {
 			// System.out.println(dates);
 			
 			boolean result = dates.before(todayDate);
-			Assert.assertEquals(result,false);
+			
+			Assert.assertEquals(result,false,"Release date is in past for "+movieName);
 			}
 			else
 				System.out.println("Release date is Null for "+movieName);
@@ -124,8 +125,7 @@ public class MoviesTestCases {
 				movieList.add(movieName);
 				//System.out.println(movieName);
 			}
-			// Blank workbook
-
+			
 		}
 
 		// System.out.println(movieList.size());
@@ -136,25 +136,23 @@ public class MoviesTestCases {
 
 		int rownum = 0;
 		for (String key : movieList) {
-			// this creates a new row in the sheet
+			
 			Row row = sheet.createRow(rownum++);
-			// Object[] objArr = movieList.toArray();
+			
 			int cellnum = 0;
-			// for (Object obj : objArr) {
-			// this line creates a cell in the next column of that row
+			
 			Cell cell = row.createCell(cellnum++);
 			if (key instanceof String)
 				cell.setCellValue((String) key);
-			// else if (obj instanceof Integer)
-			// cell.setCellValue((Integer)obj);
+			
 		}
-		// }
+	
 		try {
-			// this Writes the workbook gfgcontribute
+			
 			FileOutputStream out = new FileOutputStream(new File("Insider_Movies.xlsx"));
 			workbook.write(out);
 			out.close();
-			System.out.println("Insider_Movies.xlsx written successfully.");
+			System.out.println("Movies added to excel successfully.");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

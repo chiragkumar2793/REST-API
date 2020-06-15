@@ -47,27 +47,10 @@ public class NegativeTestCases {
 		response.then().assertThat().statusCode(200);
 	}
 
-	@Test(priority = 0)
-	public void languageValidation() {
-		List<String> movies = new ArrayList<String>();
-		List<String> lang = new ArrayList<String>();
-		for (int i = 0; i < noofmovies; i++) {
-			String movieLang = js.getString("upcomingMovieData[" + i + "].language");
-			String movieName = js.getString("upcomingMovieData[" + i + "].movie_name");
-			movies.add(movieName);
-			lang.add(movieLang);
-			Assert.assertEquals(movies.size(), lang.size());
-		}
-
-	}
+	
 
 	@Test(priority = 1)
 	public void releaseDate() throws Exception {
-
-		// response.then().assertThat().statusCode(200);
-		// String resData = response.asString();
-
-		// System.out.println(noofmovies);
 
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -82,7 +65,7 @@ public class NegativeTestCases {
 				// System.out.println(dates);
 
 				boolean result = dates.before(todayDate);
-				Assert.assertEquals(result,false);
+				Assert.assertEquals(result,false,"Release date is in past for "+movieName);
 			} else
 				System.out.println("Release date is Null for " + movieName);
 
@@ -117,57 +100,5 @@ public class NegativeTestCases {
 		}
 	}
 
-	// Write movie name to excel where content available is 0
-	@Test(priority = 4)
-	public void writeMoviestoexcel() {
-
-		List<String> movieList = new ArrayList<String>();
-
-		for (int i = 0; i < noofmovies; i++) {
-			int flag = js.get("upcomingMovieData[" + i + "].isContentAvailable");
-
-			// System.out.println(flag);
-
-			if (flag == 0) {
-				String movieName = js.getString("upcomingMovieData[" + i + "].provider_moviename");
-				movieList.add(movieName);
-				// System.out.println(movieName);
-			}
-			// Blank workbook
-
-		}
-
-		// System.out.println(movieList.size());
-		XSSFWorkbook workbook = new XSSFWorkbook();
-
-		// Create a blank sheet
-		XSSFSheet sheet = workbook.createSheet("MoviesList");
-
-		int rownum = 0;
-		for (String key : movieList) {
-			// this creates a new row in the sheet
-			Row row = sheet.createRow(rownum++);
-			// Object[] objArr = movieList.toArray();
-			int cellnum = 0;
-			// for (Object obj : objArr) {
-			// this line creates a cell in the next column of that row
-			Cell cell = row.createCell(cellnum++);
-			if (key instanceof String)
-				cell.setCellValue((String) key);
-			// else if (obj instanceof Integer)
-			// cell.setCellValue((Integer)obj);
-		}
-		// }
-		try {
-			// this Writes the workbook gfgcontribute
-			FileOutputStream out = new FileOutputStream(new File("Insider_Movies.xlsx"));
-			workbook.write(out);
-			out.close();
-			System.out.println("Insider_Movies.xlsx written successfully.");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
+	
 }
